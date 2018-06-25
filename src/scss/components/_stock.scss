@@ -1,0 +1,42 @@
+.stock {
+  text-align: center;
+
+  &__item {
+    display: inline-block;
+    position: relative;
+
+    &--meta,
+    &--price,
+    &--view {
+      font-size: 1.8rem;
+      margin-bottom: 0;
+    }
+
+    &--view {
+      position: absolute;
+      outline: none;
+      border: none;
+      background: $color-black-2;
+      color: $color-white;
+      font-family: $font-display;
+      font-size: 1rem;
+      text-transform: uppercase;
+      padding: 2rem 4rem 2rem 4rem;
+      white-space: nowrap;
+      bottom: 20%;
+      left: 21%;
+      opacity: 0;
+    }
+
+    &:hover > &--view {
+      opacity: 1;
+    }
+
+    @for $i from 1 through 5 {
+      $image-path: '../images/stock/stock-item-#{$i}.jpg';
+      &:nth-child(#{$i}) > &--image {
+        @include image-block($image-path, 35, 22, false);
+      }
+    }
+  }
+}

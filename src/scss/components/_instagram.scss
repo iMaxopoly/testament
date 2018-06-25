@@ -1,0 +1,13 @@
+.instagram {
+  text-align: center;
+
+  @for $i from 1 through 6 {
+    $image-path: '../images/instagram/instagram-item-#{$i}.jpg';
+    &__item:nth-child(#{$i}) {
+      @include image-block($image-path, 18, 18, false);
+      @media only screen and (max-width: 1209px) {
+        @include image-block($image-path, 12, 12);
+      }
+    }
+  }
+}

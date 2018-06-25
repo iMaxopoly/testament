@@ -1,0 +1,100 @@
+.demo {
+  grid-column: outer-start / outer-end;
+
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: stretch;
+
+  &__main {
+    @include image-block('../images/demo/demo-item-1.jpg', 82, 55, false);
+    cursor: crosshair;
+
+    @media only screen and (max-width: 1075px) {
+      @include image-block('../images/demo/demo-item-1.jpg', 62, 35, false);
+    }
+
+    @media only screen and (max-width: 835px) {
+      @include image-block('../images/demo/demo-item-1.jpg', 42, 25, false);
+    }
+  }
+
+  &__additionals {
+    margin-top: 5rem;
+    margin-right: 5rem;
+
+    @for $i from 1 through 5 {
+      $image-path: '../images/demo/demo-item-#{$i}.jpg';
+      &--item:nth-child(#{$i}) {
+        @include image-block($image-path, 18, 12);
+        display: block;
+
+        @media only screen and (max-width: 1075px) {
+          @include image-block($image-path, 12, 8);
+          display: block;
+        }
+
+        @media only screen and (max-width: 835px) {
+          @include image-block($image-path, 12, 8);
+          display: inline-block;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 1075px) {
+      margin-top: 2rem;
+    }
+
+    @media only screen and (max-width: 835px) {
+      display: flex;
+      justify-content: center;
+      margin: auto;
+    }
+  }
+
+  &__meta {
+    .meta {
+      &__title {
+        font-size: 3rem;
+        font-weight: 100;
+      }
+
+      &__price {
+        font-size: 2rem;
+      }
+
+      &__size,
+      &__color,
+      &__quantity,
+      &__button,
+      &__description {
+        font-size: 1.5rem;
+        font-weight: 600;
+        font-family: $font-display;
+        margin-bottom: 2rem;
+      }
+
+      &__size {
+      }
+
+      &__color {
+      }
+
+      &__quantity {
+      }
+
+      &__button {
+        background: $color-black-2;
+        border: none;
+        color: $color-white;
+        padding: 1rem;
+        width: 100%;
+        cursor: pointer;
+      }
+
+      &__description {
+      }
+    }
+  }
+}

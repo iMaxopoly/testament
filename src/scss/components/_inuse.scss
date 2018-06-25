@@ -1,0 +1,25 @@
+.inuse {
+  text-align: center;
+  margin-bottom: 5rem;
+
+  &__item {
+    display: inline-block;
+
+    &--heading {
+      font-size: 1.8rem;
+    }
+
+    &--sub {
+      max-width: 30rem;
+      font-size: 1.6rem;
+      margin: auto;
+    }
+
+    @for $i from 1 through 3 {
+      $image-path: '../images/inuse/inuse-item-#{$i}.jpg';
+      &:nth-child(#{$i}) > &--image {
+        @include image-block($image-path, 20, 36, false);
+      }
+    }
+  }
+}

@@ -1,0 +1,103 @@
+.store-area {
+  grid-column: outer-start / outer-end;
+  margin: 2rem auto;
+
+  display: flex;
+  flex-flow: column;
+
+  &--push-right {
+    align-self: flex-end;
+  }
+}
+
+.store {
+  grid-column: outer-start / outer-end;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  @media only screen and (max-width: 1375px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media only screen and (max-width: 1030px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media only screen and (max-width: 480px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  &__item {
+    margin: 1rem auto;
+    margin-bottom: 0;
+
+    &--title {
+      font-size: 1.5rem;
+      text-align: center;
+      font-family: $font-display;
+    }
+
+    &--price {
+      font-size: 1.5rem;
+      text-align: center;
+      font-family: $font-display;
+    }
+
+    &--view {
+      position: relative;
+      outline: none;
+      border: none;
+      background: $color-black-2;
+      color: $color-white;
+      font-family: $font-display;
+      font-size: 1rem;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 2rem 4rem 2rem 4rem;
+      white-space: nowrap;
+      width: 60%;
+      top: -25%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+
+      @media only screen and (max-width: 680px) {
+        display: none;
+      }
+    }
+
+    &:hover > &--view {
+      opacity: 1;
+    }
+
+    @for $i from 1 through 14 {
+      &:nth-child(#{$i}) > &--image {
+        @include image-block(
+          '../images/store/store-item-#{$i}.jpg',
+          44,
+          30,
+          false
+        );
+
+        @media only screen and (max-width: 680px) {
+          @include image-block(
+            '../images/store/store-item-#{$i}.jpg',
+            30,
+            20,
+            false
+          );
+        }
+
+        @media only screen and (max-width: 480px) {
+          @include image-block(
+            '../images/store/store-item-#{$i}.jpg',
+            44,
+            30,
+            false
+          );
+        }
+      }
+    }
+  }
+}

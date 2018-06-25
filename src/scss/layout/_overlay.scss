@@ -1,0 +1,66 @@
+.overlay {
+  grid-column: outer-start / outer-end;
+  position: relative;
+  cursor: pointer;
+  background-image: url('../images/overlay.jpg');
+  background-size: cover;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  border-top: 3rem $color-white solid;
+  border-bottom: 3rem $color-white solid;
+  transition: opacity 0.5s, border 0.5s;
+  color: $color-white;
+
+  &:hover {
+    border-top: 3rem $color-grey-2 solid;
+    border-bottom: 3rem $color-grey-2 solid;
+    opacity: 0.5;
+  }
+
+  &__heading,
+  &__sub {
+    text-transform: uppercase;
+  }
+
+  &__heading {
+    position: absolute;
+    font-size: 2.5rem;
+    font-weight: 100;
+    white-space: nowrap;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease, translate 0.3s ease;
+
+    // transition: transform 0.3s ease-out;
+
+    @media only screen and (max-width: 903px) {
+      font-size: 2rem;
+    }
+
+    @media only screen and (max-width: 601px) {
+      font-size: 4rem;
+    }
+  }
+
+  &__sub {
+    position: absolute;
+    font-size: 2.5rem;
+    font-weight: 100;
+    white-space: nowrap;
+    top: 70%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale3d(1.5, 1.5, 1.5);
+    transition: transform 0.3s ease, opacity 0.3s ease, translate 0.3s ease;
+  }
+
+  &:hover > &__heading {
+    transform: translate(-50%, -50%) scale3d(0.8, 0.8, 0.8);
+  }
+
+  &:hover > &__sub {
+    transform: translate(-50%, -50%) scale3d(0.8, 0.8, 0.8);
+    opacity: 1;
+  }
+}

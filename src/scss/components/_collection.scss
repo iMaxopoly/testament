@@ -1,0 +1,66 @@
+.collection {
+  text-align: center;
+  text-transform: uppercase;
+  color: $color-white;
+
+  &__item {
+    position: relative;
+
+    &--heading {
+      position: absolute;
+      font-size: 4rem;
+      font-weight: 100;
+      white-space: nowrap;
+      top: 40%;
+      width: 100%;
+      transition: transform 0.3s ease-out;
+
+      @media only screen and (max-width: 903px) {
+        font-size: 2rem;
+      }
+
+      @media only screen and (max-width: 601px) {
+        font-size: 4rem;
+      }
+    }
+
+    &--sub {
+      position: absolute;
+      font-size: 2.5rem;
+      font-weight: 100;
+      white-space: nowrap;
+      top: 65%;
+      left: 25%;
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      transform: scale3d(1.5, 1.5, 1.5);
+    }
+
+    &:hover > &--heading {
+      transform: scale3d(0.8, 0.8, 0.8);
+    }
+
+    &:hover > &--sub {
+      transform: scale3d(0.8, 0.8, 0.8);
+      opacity: 1;
+    }
+
+    @for $i from 1 through 3 {
+      $image-path: '../images/collections/collection-item-#{$i}.jpg';
+      &:nth-child(#{$i}) {
+        @include image-block($image-path, 30, 34);
+        @media only screen and (max-width: 1083px) {
+          @include image-block($image-path, 20, 28);
+        }
+
+        @media only screen and (max-width: 903px) {
+          @include image-block($image-path, 15, 20);
+        }
+
+        @media only screen and (max-width: 601px) {
+          @include image-block($image-path, 34, 38);
+        }
+      }
+    }
+  }
+}

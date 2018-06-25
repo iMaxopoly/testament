@@ -1,0 +1,92 @@
+.heading-1 {
+  margin: 2rem auto;
+  font-weight: 100;
+  font-size: 3rem;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: $color-white;
+  position: relative;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 1px;
+    width: 50%;
+    background-color: $color-grey-2;
+    position: relative;
+  }
+
+  &::before {
+    right: 0.5em;
+    margin-left: -50%;
+  }
+
+  &::after {
+    left: 0.5em;
+    margin-right: -50%;
+  }
+}
+
+.heading-2 {
+  @extend .heading-1;
+  font-weight: 100;
+  font-size: 2rem;
+}
+
+.description {
+  display: block;
+  margin: 2rem auto;
+  max-width: 65%;
+  font-family: $font-display;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.sprites {
+  background: url('../images/icons/icons.png') no-repeat top left;
+  width: 16px;
+  height: 16px;
+
+  &.icon--cart {
+    background-position: 0 0;
+  }
+
+  &.icon--currency {
+    background-position: 0 -26px;
+  }
+
+  &.icon--facebook {
+    background-position: 0 -52px;
+  }
+
+  &.icon--home {
+    background-position: 0 -78px;
+  }
+
+  &.icon--instagram {
+    background-position: 0 -104px;
+  }
+
+  &.icon--person {
+    background-position: 0 -130px;
+  }
+
+  &.icon--pinterest {
+    background-position: 0 -156px;
+  }
+
+  &.icon--search {
+    background-position: 0 -182px;
+  }
+
+  &.icon--twitter {
+    background-position: 0 -208px;
+  }
+
+  &.icon--youtube {
+    background-position: 0 -234px;
+  }
+}

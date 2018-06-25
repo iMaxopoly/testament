@@ -1,0 +1,16 @@
+@mixin image-block($image-url, $height, $width, $hover-effect: true) {
+  background-image: url($image-url);
+  background-size: cover;
+  height: #{$height}rem;
+  width: #{$width}rem;
+  display: inline-block;
+  cursor: pointer;
+  margin: 1rem;
+  transition: opacity 0.5s ease;
+
+  @if $hover-effect {
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}

@@ -1,0 +1,61 @@
+.footer {
+  background-color: $color-black-1;
+  grid-column: outer-start / outer-end;
+
+  .categories {
+    padding: 4rem;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    white-space: nowra;
+
+    @media only screen and (max-width: 660px) {
+      flex-direction: column;
+    }
+  }
+
+  .category {
+    color: $color-white;
+    margin: 2rem;
+
+    & > ul {
+      list-style: none;
+    }
+
+    &__heading {
+      text-transform: uppercase;
+      font-size: 1.6rem;
+      margin-bottom: 3rem;
+    }
+
+    &__links {
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    &__input {
+      border: 0;
+      background: none;
+      color: $color-white;
+      outline: none;
+    }
+
+    &__button {
+      border: 0;
+      background: none;
+      color: $color-white;
+      margin-left: 1rem;
+      outline: none;
+      cursor: pointer;
+    }
+  }
+
+  .copyright {
+    color: $color-white;
+    text-align: center;
+    padding: 4rem;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+  }
+}
